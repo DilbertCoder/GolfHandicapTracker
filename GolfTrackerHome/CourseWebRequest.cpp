@@ -28,13 +28,13 @@
 CourseWebRequest::CourseWebRequest(QObject *parent) :
     QObject(parent),
     m_UsgaCourseWebPage("https://ncrdb.usga.org/NCRDB/courseTeeInfo.aspx?CourseID=%0%1%2%3%4"),
-    m_CourseIdOne(0),
-    m_CourseIdTwo(2),
-    m_CourseIdThree(2),
-    m_CourseIdFour(5),
-    m_CourseIdFive(7)
+    m_CourseIdOne(1),
+    m_CourseIdTwo(0),
+    m_CourseIdThree(5),
+    m_CourseIdFour(1),
+    m_CourseIdFive(0)
 {
-    //26136 01682 02110 02258
+    //02258 10510
     m_UsgaSearchUrl = QUrl(m_UsgaCourseWebPage.arg(m_CourseIdOne)
                                               .arg(m_CourseIdTwo)
                                               .arg(m_CourseIdThree)
@@ -115,17 +115,18 @@ void CourseWebRequest::OnNetworkManagerFinished()
 
 //        httpResults = QString(m_UsgaReply->readLine());
 //    }
-    QString noWhiteSpace = httpResults.simplified();
+//    QString noWhiteSpace = httpResults.simplified();
 
-    if(noWhiteSpace.contains("gvTee"))
-    {
-        int tableLocation = noWhiteSpace.indexOf("gvTee");
-    }
+//    if(noWhiteSpace.contains("gvTee"))
+//    {
+//        int tableLocation = noWhiteSpace.indexOf("gvTee");
+//    }
 //    QString tableLine = httpResults.at(tableLocation);
 
 
     if(httpResults.contains("Club/Course Name"))
     {
+        qDebug() << "Found A Course";
         QString dataFileName = QString("/home/nmullican/Code/Data/Course%0%1%2%3%4.txt").arg(m_CourseIdOne)
                                                                                         .arg(m_CourseIdTwo)
                                                                                         .arg(m_CourseIdThree)

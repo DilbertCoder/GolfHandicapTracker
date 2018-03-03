@@ -28,13 +28,17 @@ SOURCES += \
         GolfTrackerMainWindow.cpp \
     HandicapDifferential.cpp \
     InputGolfScoreDialog.cpp \
-    CourseWebRequest.cpp
+    CourseWebRequest.cpp \
+    WebDataParser.cpp \
+    WebDataItem.cpp
 
 HEADERS += \
         GolfTrackerMainWindow.h \
     HandicapDifferential.h \
     InputGolfScoreDialog.h \
-    CourseWebRequest.h
+    CourseWebRequest.h \
+    WebDataParser.h \
+    WebDataItem.h
 
 FORMS += \
         GolfTrackerMainWindow.ui \
