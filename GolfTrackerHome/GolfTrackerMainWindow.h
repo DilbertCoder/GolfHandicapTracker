@@ -19,8 +19,12 @@
 #define GOLFTRACKERMAINWINDOW_H
 
 #include <QMainWindow>
+#include <QSharedPointer>
 
 #include "CourseWebRequest.h"
+#include "UpdateCourseDataThread.h"
+
+
 
 namespace Ui {
 class GolfTrackerMainWindow;
@@ -34,10 +38,17 @@ public:
     explicit GolfTrackerMainWindow(QWidget *parent = 0);
     ~GolfTrackerMainWindow();
 
+signals:
+
+protected slots:
+    void OnActionUpdateCoursesTriggered();
+
 private:
     Ui::GolfTrackerMainWindow *ui;
 
     CourseWebRequest m_UsgaRequest;
+
+    QSharedPointer<UpdateCourseDataThread> m_CourseUpdateThread;
 };
 
 #endif // GOLFTRACKERMAINWINDOW_H

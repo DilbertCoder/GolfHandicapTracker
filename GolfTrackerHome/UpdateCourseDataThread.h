@@ -15,37 +15,52 @@
 //You should have received a copy of the GNU General Public License
 //along with this program. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------------
-//-----------------------------------------------------------------------------
-// This class will request the Course information from the USGA website
-//-----------------------------------------------------------------------------
-#ifndef COURSEWEBREQUEST_H
-#define COURSEWEBREQUEST_H
+#ifndef UPDATECOURSEDATATHREAD_H
+#define UPDATECOURSEDATATHREAD_H
 
 #include <QObject>
+#include <QString>
 #include <QNetworkAccessManager>
-#include <QNetworkRequest>
 #include <QNetworkReply>
 
-class CourseWebRequest : public QObject
+//-----------------------------------------------------------------------------
+//! \brief Thread to update course data localy
+//
+//! This class will update the USGA Course informtion need for this application
+//! locally on this machine.
+//! TODO: Maybe push this to a site somewhere?
+//-----------------------------------------------------------------------------
+class UpdateCourseDataThread : public QObject
 {
     Q_OBJECT
 public:
-    explicit CourseWebRequest(QObject *parent = nullptr);
+    explicit UpdateCourseDataThread(QObject *parent = nullptr);
+    ~UpdateCourseDataThread();
 
-signals:
+    void StopUpdate();
+
+    void StartUpdate();
 
 protected slots:
+    void OnInitilizeThread();
+
     void OnNetworkManagerFinished();
 
 protected:
     void UpdateCourseId();
 
 private:
-    QString m_UsgaCourseWebPage;
+    const QString m_UsgaCourseWebPage;
 
     QUrl m_UsgaSearchUrl;
     QNetworkAccessManager m_NetworkManager;
     QNetworkReply* m_UsgaReply;
+
+    uint m_CourseIdOne;
+    uint m_CourseIdTwo;
+    uint m_CourseIdThree;
+    uint m_CourseIdFour;
+    uint m_CourseIdFive;
 };
 
-#endif // COURSEWEBREQUEST_H
+#endif // UPDATECOURSEDATATHREAD_H

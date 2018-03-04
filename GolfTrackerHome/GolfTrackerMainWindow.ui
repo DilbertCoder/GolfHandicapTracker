@@ -53,7 +53,14 @@
     <addaction name="actionSave_Scores"/>
     <addaction name="actionLoad_Scores"/>
    </widget>
+   <widget class="QMenu" name="menuUtilities">
+    <property name="title">
+     <string>Utilities</string>
+    </property>
+    <addaction name="actionUpdate_Courses"/>
+   </widget>
    <addaction name="menuAdd_Score"/>
+   <addaction name="menuUtilities"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -77,6 +84,11 @@
   <action name="actionLoad_Scores">
    <property name="text">
     <string>Load Scores...</string>
+   </property>
+  </action>
+  <action name="actionUpdate_Courses">
+   <property name="text">
+    <string>Update Courses</string>
    </property>
   </action>
  </widget>

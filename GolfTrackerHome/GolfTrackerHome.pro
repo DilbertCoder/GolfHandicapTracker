@@ -30,7 +30,8 @@ SOURCES += \
     InputGolfScoreDialog.cpp \
     CourseWebRequest.cpp \
     WebDataParser.cpp \
-    WebDataItem.cpp
+    WebDataItem.cpp \
+    UpdateCourseDataThread.cpp
 
 HEADERS += \
         GolfTrackerMainWindow.h \
@@ -38,7 +39,8 @@ HEADERS += \
     InputGolfScoreDialog.h \
     CourseWebRequest.h \
     WebDataParser.h \
-    WebDataItem.h
+    WebDataItem.h \
+    UpdateCourseDataThread.h
 
 FORMS += \
         GolfTrackerMainWindow.ui \

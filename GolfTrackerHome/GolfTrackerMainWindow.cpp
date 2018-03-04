@@ -18,14 +18,31 @@
 #include "GolfTrackerMainWindow.h"
 #include "ui_GolfTrackerMainWindow.h"
 
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 GolfTrackerMainWindow::GolfTrackerMainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::GolfTrackerMainWindow)
+    ui(new Ui::GolfTrackerMainWindow),
+    m_CourseUpdateThread(new UpdateCourseDataThread(this))
 {
     ui->setupUi(this);
+
+    connect(ui->actionUpdate_Courses,
+            SIGNAL(triggered(bool)),
+            this,
+            SLOT(OnActionUpdateCoursesTriggered()));
 }
 
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
 GolfTrackerMainWindow::~GolfTrackerMainWindow()
 {
     delete ui;
+}
+
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+void GolfTrackerMainWindow::OnActionUpdateCoursesTriggered()
+{
+    m_CourseUpdateThread->StartUpdate();
 }
