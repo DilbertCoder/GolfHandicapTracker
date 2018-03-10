@@ -31,7 +31,8 @@ SOURCES += \
     CourseWebRequest.cpp \
     WebDataParser.cpp \
     WebDataItem.cpp \
-    UpdateCourseDataThread.cpp
+    UpdateCourseDataThread.cpp \
+    UsgaCourseData.cpp
 
 HEADERS += \
         GolfTrackerMainWindow.h \
@@ -40,7 +41,8 @@ HEADERS += \
     CourseWebRequest.h \
     WebDataParser.h \
     WebDataItem.h \
-    UpdateCourseDataThread.h
+    UpdateCourseDataThread.h \
+    UsgaCourseData.h
 
 FORMS += \
         GolfTrackerMainWindow.ui \

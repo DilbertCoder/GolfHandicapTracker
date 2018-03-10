@@ -29,14 +29,24 @@ class InputGolfScoreDialog : public QDialog
     Q_OBJECT
 
 public:
+    //-------------------------------------------------------------------------
+    //! Constructor
+    //! \param parent Pointer to the parent widget (default nullptr)
+    //-------------------------------------------------------------------------
     explicit InputGolfScoreDialog(QWidget *parent = 0);
+
+    //-------------------------------------------------------------------------
+    //! Deconstructor
+    //-------------------------------------------------------------------------
     ~InputGolfScoreDialog();
 
-protected:
-    void PopulateCouseComboBox();
+protected slots:
+    void OnPushButtonFindCourseClicked();
 
 private:
     Ui::InputGolfScoreDialog *ui;
+
+    const QString m_CourseDataDir;
 };
 
 #endif // INPUTGOLFSCOREDIALOG_H

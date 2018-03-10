@@ -22,9 +22,15 @@
 //-----------------------------------------------------------------------------
 InputGolfScoreDialog::InputGolfScoreDialog(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::InputGolfScoreDialog)
+    ui(new Ui::InputGolfScoreDialog),
+    m_CourseDataDir(QApplication::applicationDirPath() + "/CourseData/")
 {
     ui->setupUi(this);
+
+    connect(ui->pushButtonCourseSearch,
+            SIGNAL(clicked(bool)),
+            this,
+            SLOT(OnPushButtonFindCourseClicked()));
 }
 
 //-----------------------------------------------------------------------------
@@ -36,7 +42,8 @@ InputGolfScoreDialog::~InputGolfScoreDialog()
 
 //-----------------------------------------------------------------------------
 //-----------------------------------------------------------------------------
-void InputGolfScoreDialog::PopulateCouseComboBox()
+void InputGolfScoreDialog::OnPushButtonFindCourseClicked()
 {
-
+    //I need to load the course data so i can search through it. how do i want to do this
+    //
 }

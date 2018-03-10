@@ -15,43 +15,9 @@
 //You should have received a copy of the GNU General Public License
 //along with this program. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------------
-#ifndef GOLFTRACKERMAINWINDOW_H
-#define GOLFTRACKERMAINWINDOW_H
+#include "UsgaCourseData.h"
 
-#include <QMainWindow>
-#include <QSharedPointer>
-
-#include "CourseWebRequest.h"
-#include "UpdateCourseDataThread.h"
-
-namespace Ui {
-class GolfTrackerMainWindow;
-}
-
-//-----------------------------------------------------------------------------
-//! \brief Main window of program
-//-----------------------------------------------------------------------------
-class GolfTrackerMainWindow : public QMainWindow
+UsgaCourseData::UsgaCourseData(QObject *parent) : QObject(parent)
 {
-    Q_OBJECT
 
-public:
-    explicit GolfTrackerMainWindow(QWidget *parent = 0);
-    ~GolfTrackerMainWindow();
-
-signals:
-
-protected slots:
-    void OnActionUpdateCoursesTriggered();
-
-protected:
-
-private:
-    Ui::GolfTrackerMainWindow *ui;
-
-    CourseWebRequest m_UsgaRequest;
-
-    QSharedPointer<UpdateCourseDataThread> m_CourseUpdateThread;
-};
-
-#endif // GOLFTRACKERMAINWINDOW_H
+}
